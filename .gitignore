@@ -108,6 +108,7 @@ projectFilesBackup
 /content/adapters/scheduling/**/*
 !/content/themes/casper
 !/content/themes/krabi
+!/content/themes/krabi/**/*
 !/README.md
 !/content/**/README.md
 
