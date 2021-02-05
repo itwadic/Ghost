@@ -1,5 +1,8 @@
 const express = require('../../../../../shared/express');
 const apiCanary = require('../../../../api/canary');
+//Custom Controller
+const gTagController = require('../../../../custom/controllers/gTagController');
+
 const apiMw = require('../../middleware');
 const mw = require('./middleware');
 
@@ -253,6 +256,12 @@ module.exports = function apiRoutes() {
     router.post('/snippets', mw.authAdminApi, http(apiCanary.snippets.add));
     router.put('/snippets/:id', mw.authAdminApi, http(apiCanary.snippets.edit));
     router.del('/snippets/:id', mw.authAdminApi, http(apiCanary.snippets.destroy));
+
+    
+
+    //Custom Routes
+    router.post('/gTag', mw.authAdminApi, gTagController.pushGTag);
+    router.get('/getGTag', mw.authAdminApi, gTagController.get);
 
     return router;
 };

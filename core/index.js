@@ -6,6 +6,8 @@ const GhostServer = require('./server/ghost-server');
 
 // Set the default environment to be `development`
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const config = require('../knexfile.js')[process.env.NODE_ENV];
+module.exports = require('knex')(config);
 
 function makeGhost(options) {
     options = options || {};
