@@ -262,6 +262,8 @@ module.exports = function apiRoutes() {
     //Custom Routes
     router.post('/gTag', mw.authAdminApi, gTagController.pushGTag);
     router.get('/getGTag', mw.authAdminApi, gTagController.get);
-
+    router.get('/getCtaList', mw.authAdminApi, gTagController.getCtaList);
+    router.get('/getCta', mw.authAdminApi, gTagController.getCta);
+    
     return router;
 };
