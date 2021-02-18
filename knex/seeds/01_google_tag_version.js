@@ -7,8 +7,8 @@ exports.seed = function(knex) {
       return knex('google_tag_versions').insert([
         { 
           id: 1, account_id: '6002892582', 
-          container_id: '38100767', workspace_id: '73', 
-          version_id: '67'
+          container_id: '38100767', workspace_id: '88', 
+          version_id: '82'
         }
       ]);
     });
