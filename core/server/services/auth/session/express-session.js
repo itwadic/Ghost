@@ -15,10 +15,10 @@ const expressSessionMiddleware = session({
     name: 'ghost-admin-api-session',
     cookie: {
         maxAge: constants.SIX_MONTH_MS,
-        httpOnly: true,
+        httpOnly: false,
         path: urlUtils.getSubdir() + '/ghost',
         sameSite: 'lax',
-        secure: urlUtils.isSSL(config.get('url'))
+        // secure: urlUtils.isSSL(config.get('url'))
     }
 });
 
