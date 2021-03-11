@@ -2,6 +2,7 @@ const express = require('../../../../../shared/express');
 const apiCanary = require('../../../../api/canary');
 //Custom Controller
 const gTagController = require('../../../../custom/controllers/gTagController');
+const uploadImageController = require('../../../../custom/controllers/uploadImageController');
 
 const apiMw = require('../../middleware');
 const mw = require('./middleware');
@@ -264,6 +265,8 @@ module.exports = function apiRoutes() {
     router.get('/getGTag', mw.authAdminApi, gTagController.get);
     router.get('/getCtaList', mw.authAdminApi, gTagController.getCtaList);
     router.get('/getCta', mw.authAdminApi, gTagController.getCta);
-    
+    router.post('/upload_image', mw.authAdminApi, uploadImageController.create);
+    router.post('/delete_image', mw.authAdminApi, uploadImageController.delete);
+
     return router;
 };
