@@ -2,8 +2,6 @@ const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage }  = require("multer-storage-cloudinary");
 const config = require('../../../shared/config');
-const path = require("path");
-const moment = require("moment");
 
 cloudinary.config({
     cloud_name: config.get('storage:ghost-storage-cloudinary:auth:cloud_name'),
@@ -13,14 +11,10 @@ cloudinary.config({
 
 exports.cloudinary = cloudinary;
 
-const date = moment()
-const month = date.format('MM')
-const year = date.format('YYYY')
-
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: path.join(config.get('storage:ghost-storage-cloudinary:upload:folder'), year, month)
+        folder: config.get('storage:ghost-storage-cloudinary:upload:folder')
     }
 });
 
